@@ -75,9 +75,25 @@ browser.manage().logs().get('browser').then(function(browserLog) {
 });
 ```
 
-This will output logs from the browser console. Note that logs below the set logging level will be ignored. WebDriver does not currently support changing the logging level for browser logs.
-
+This will output logs from the browser console. Note that logs below the set logging level will be ignored.
 See an example ([spec.js](https://github.com/juliemr/protractor-demo/blob/master/howtos/browserlog/spec.js)) of using this API to fail tests if the console has errors.
+
+How can I change logging level?
+--------------------------------------------
+In your 'protractor.conf.es' file:
+```javascript
+capabilities: {
+  browserName: 'chrome',
+  version: '',
+  platform: 'ANY',
+  loggingPrefs: {
+      "browser": "INFO" // Change the logging level here
+  }
+},
+
+```
+
+See [here](https://code.google.com/p/selenium/wiki/DesiredCapabilities#JSON_object), for other logging levels available.
 
 How can I get screenshots of failures?
 -------------------------------------------- 
